@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Detail Ticket</h2>
+{% if ticket %}
+<h5><b>ID:</b>{{ticket.id}}</h5>
+<h5><b>Title:</b>{{ticket.title}}</h5>
+<h5><b>Description:</b>{{ticket.description}}</h5>
+<h5><b>Creation Date:</b>{{ticket.created_at}}</h5>
+
+
+{% else %}
+<h3>There is no Ticket</h3>
+{% endif %}
+<a href="{% url 'ticket_list' %}" class="btn btn-dark">Back to Home</a>
+{% endblock %}
