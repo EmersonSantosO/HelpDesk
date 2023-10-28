@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Eliminar Nivel de Criticidad: {{ object.level }}</h2>
+<p>¿Estás seguro que deseas eliminar este nivel de criticidad?</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a href="{% url 'criticy_list' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+
+{% endblock %}

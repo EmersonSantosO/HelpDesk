@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Detalle del Técnico: {{ object.name }}</h2>
+<p><strong>Nombre:</strong> {{ object.name }}</p>
+<p><strong>Apellido:</strong> {{ object.last_name }}</p>
+<p><strong>Especialidad:</strong> 
+    {% for speciality in object.speciality.all %}{{ speciality.name }}{% if not forloop.last %}, {% endif %}{% endfor %}
+</p>
+<a href="{% url 'tech_list' %}" class="btn btn-secondary">Volver a la lista</a>
+{% endblock %}

@@ -15,9 +15,8 @@ class TicketForm(forms.ModelForm):
 class Ticket_HistoryForm(forms.ModelForm):
     class Meta:
         model = Ticket_History
-        fields = ["date","description"]
-        widgets = {"date":forms.DateInput(attrs={"class":"form-control"}),
-                   "description":forms.Textarea(attrs={"class":"form-control"}),
+        fields = ["description"]
+        widgets = {"description":forms.Textarea(attrs={"class":"form-control"}),
                    }
 
 class TechForm(forms.ModelForm):

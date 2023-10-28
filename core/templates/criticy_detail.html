@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Detalle de Nivel de Criticidad: {{ object.level }}</h2>
+<p><strong>Nivel:</strong> {{ object.level }}</p>
+<a href="{% url 'criticy_list' %}" class="btn btn-secondary">Volver a la lista</a>
+{% endblock %}

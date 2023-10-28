@@ -1,21 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Deleting Ticket</h1>
-<h2>Are you sure you want to delete it?</h2>
-<form action="" method="post">
+<h2>Eliminar Ticket: {{ object.title }}</h2>
+<p>¿Estás seguro que deseas eliminar este ticket?</p>
+
+<form method="post">
     {% csrf_token %}
-    <button class="btn btn-danger">To Delete</button>
-    <a class="btn btn-dark" href="{% url 'ticket_list' %}">Go to Home</a>
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a href="{% url 'ticket_list' %}" class="btn btn-secondary">Cancelar</a>
 </form>
-
-
-
-
-
-
-
-
 
 {% endblock %}
 

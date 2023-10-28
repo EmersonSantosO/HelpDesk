@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Lista de Niveles de Criticidad</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nivel</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for criticy in object_list %}
+        <tr>
+            <td>{{ criticy.level }}</td>
+            <td>
+                <a href="{% url 'criticy_detail' criticy.id %}" class="btn btn-info">Ver</a>
+                <a href="{% url 'criticy_update' criticy.id %}" class="btn btn-warning">Editar</a>
+                <a href="{% url 'criticy_delete' criticy.id %}" class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'criticy_create' %}" class="btn btn-primary">Agregar Nivel de Criticidad</a>
+{% endblock %}

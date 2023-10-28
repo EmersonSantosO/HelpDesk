@@ -1,16 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Detail Ticket</h2>
-{% if ticket %}
-<h5><b>ID:</b>{{ticket.id}}</h5>
-<h5><b>Title:</b>{{ticket.title}}</h5>
-<h5><b>Description:</b>{{ticket.description}}</h5>
-<h5><b>Creation Date:</b>{{ticket.created_at}}</h5>
+<h2>Detalle del Ticket: {{ object.title }}</h2>
 
+<ul>
+    <li><strong>Descripción:</strong> {{ object.description }}</li>
+    <li><strong>Criticidad:</strong> {{ object.criticy.level }}</li>
+    <li><strong>Técnico:</strong> {{ object.tech.name }} {{ object.tech.last_name }}</li>
+    <li><strong>Fecha de Creación:</strong> {{ object.created_at }}</li>
+    <li><strong>Última Actualización:</strong> {{ object.updated_at }}</li>
+</ul>
 
-{% else %}
-<h3>There is no Ticket</h3>
-{% endif %}
-<a href="{% url 'ticket_list' %}" class="btn btn-dark">Back to Home</a>
+<a href="{% url 'ticket_update' object.id %}" class="btn btn-warning">Editar</a>
+<a href="{% url 'ticket_delete' object.id %}" class="btn btn-danger">Eliminar</a>
+<a href="{% url 'ticket_list' %}" class="btn btn-secondary">Regresar al listado</a>
 {% endblock %}
